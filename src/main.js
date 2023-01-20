@@ -18,6 +18,10 @@ import Textarea from 'primevue/textarea';
 import ToggleButton from 'primevue/togglebutton';
 import Calendar from 'primevue/calendar';
 import InputText from 'primevue/inputtext';
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
+import ColumnGroup from 'primevue/columngroup';     //optional for column grouping
+import Row from 'primevue/row';      
 
 const app = createApp(App);
 app.use(PrimeVue)
@@ -31,6 +35,10 @@ app.component('Steps', Steps);
 app.component('Textarea', Textarea);
 app.component('ToggleButton', ToggleButton);
 app.component('Calendar', Calendar);
+app.component('DataTable', DataTable);
+app.component('Column', Column);
+app.component('ColumnGroup', ColumnGroup);
+app.component('Row', Row);
 
 
 app.use(router)

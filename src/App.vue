@@ -23,7 +23,7 @@ export default {
     setup() {
         const router = useRouter();
         const toast = useToast();
-        let completeDatos = ref(false)
+        let completeDatos = ref(true)
         const items = ref([
             {
                 label: 'Cédula Verde',
@@ -63,7 +63,7 @@ export default {
             toast.add({severity:'success', summary:'Order submitted', detail: 'Dear, ' + formObject.value.firstname + ' ' + formObject.value.lastname + ' your order completed.'});
         };
 
-        return { items, formObject, nextPage, prevPage, complete }
+        return { items, formObject, nextPage, prevPage, complete,completeDatos }
 
         
     }

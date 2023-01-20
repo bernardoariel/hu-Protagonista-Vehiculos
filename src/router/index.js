@@ -4,6 +4,7 @@ import CedulaAzulComponent from '../components/CedulaAzulComponent.vue'
 import LicenciaConducirComponent from '../components/LicenciaConducirComponent.vue'
 import RtoComponent from '../components/RtoComponent.vue'
 import SeguroComponent from '../components/SeguroComponent.vue'
+import CompleteComponent from '../components/CompleteComponent.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
       path: '/seguro',
       name:'seguro',
       component: SeguroComponent
+    },
+    {
+      path: '/complete',
+      name:'complete',
+      component: CompleteComponent
     }
     
   ]

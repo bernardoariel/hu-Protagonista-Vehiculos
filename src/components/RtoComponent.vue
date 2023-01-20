@@ -1,7 +1,7 @@
 
 <template>
     <div class="stepsdemo-content">
-            <Card style="width:50em"> 
+        <Card style="width:50em"> 
             <template v-slot:title>
                 Revision Tecnica Obligatoria
             </template>
