@@ -49,8 +49,15 @@
                     </div>
                     <div class="col" v-if="!chkVencida">
                         <label for="fechaVencimiento">Se venció en :</label><br>
-                        <Calendar class="mt-3"
-                            inputId="basic" v-model="fecha" autocomplete="off" dateFormat="mm-dd-yy" :showIcon="true"/>
+                        <Calendar 
+                            class="mt-3"
+                            :class="{'p-invalid':error && submitted}" 
+                            inputId="basic" v-model="fecha" autocomplete="off"
+                            dateFormat="mm-dd-yy" :showIcon="true"
+                            @blur="error=false"
+                            />
+                        <br>
+                        <small v-show="" class="text-red-300">Este dato es requerido.</small>
                     </div>
                 </div>
             </template>
@@ -73,15 +80,23 @@ export default {
         return {
          
             submitted: false,
-            validationErrors: {},
             checked:false,
             chkVencida:true,
-            fecha:''
+            fecha:'',
+            error: false
         }
     },
     methods: {
         nextPage() {
-            this.$router.push({ name: 'cedulaAzul' })
+            this.submitted = true;
+           
+            if (this.fecha.length<1 && !this.chkVencida) {
+                // this.$emit('next-page', {formData: {firstname: this.firstname, lastname: this.lastname, age: this.age}, pageIndex: 0});
+                console.log('entro',this.fecha)
+                this.error= true
+                return
+            }
+           this.$router.push({ name: 'cedulaAzul' })
         },
        
         validateForm() {

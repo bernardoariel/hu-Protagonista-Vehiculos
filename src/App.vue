@@ -2,7 +2,7 @@
     <div class="consulta">
         <Toast />
 
-        <div class="card">
+        <div class="card" v-if="!completeDatos">
             <Steps :model="items" :readonly="true" aria-label="Form Steps" />
         </div>
 
@@ -23,6 +23,7 @@ export default {
     setup() {
         const router = useRouter();
         const toast = useToast();
+        let completeDatos = ref(false)
         const items = ref([
             {
                 label: 'Cédula Verde',
