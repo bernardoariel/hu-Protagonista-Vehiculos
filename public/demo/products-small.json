@@ -1,0 +1,54 @@
+
+{
+    "data": [
+        {
+            "id": "1000",
+            "name": "Omar Gabriel Pelosi",
+            "tipo": "Protagonista",
+            "icono":"pi-car",
+            "category": "Dni: 22123133",
+            "inventoryStatus": "INSTOCK"
+        },
+        {
+            "id": "1000",
+            "name": "Elena Rinaldi",
+            "tipo": "Acompañante",
+            "icono":"pi-users",
+            "category": "Dni: 12123456",
+            "inventoryStatus": "LOWSTOCK"
+        },
+        {
+            "id": "1000",
+            "name": "Milena Rinaldi",
+            "icono":"pi-user",
+            "tipo": "Peaton",
+            "category": "Dni: 12123456",
+            "inventoryStatus": "OUTOFSTOCK"
+        },
+        {
+            "id": "1000",
+            "name": "Juan Casco",
+            "tipo": "Acompañante",
+            "icono":"pi-users",
+            "category": "Dni: 55123412",
+            "inventoryStatus": "LOWSTOCK"
+        },
+        {
+            "id": "1000",
+            "name": "Javier Ernesto Pomar",
+            "tipo": "Acompañante",
+            "icono":"pi-users",
+            "category": "Dni: 12123456",
+            "inventoryStatus": "LOWSTOCK"
+        },
+        {
+            "id": "1000",
+            "name": "Cristina Alonso",
+            "tipo": "Protagonista",
+            "icono":"pi-car",
+            "category": "Dni: 22123133",
+            "inventoryStatus": "INSTOCK"
+        }
+    ]
+ }
+    

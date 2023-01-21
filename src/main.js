@@ -22,6 +22,8 @@ import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';     //optional for column grouping
 import Row from 'primevue/row';      
+import Dropdown from 'primevue/dropdown';
+import PickList from 'primevue/picklist';
 
 const app = createApp(App);
 app.use(PrimeVue)
@@ -39,6 +41,8 @@ app.component('DataTable', DataTable);
 app.component('Column', Column);
 app.component('ColumnGroup', ColumnGroup);
 app.component('Row', Row);
+app.component('Dropdown', Dropdown);
+app.component('PickList', PickList);
 
 
 app.use(router)

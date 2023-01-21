@@ -2,7 +2,7 @@
 <template>
     <div class="stepsdemo-content">
     
-        <Card style="width:50em"> 
+        <Card class="w-7"> 
             <template v-slot:title>
                 Cedula Verde
             </template>

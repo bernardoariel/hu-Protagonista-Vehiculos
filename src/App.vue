@@ -1,8 +1,8 @@
 <template>
     <div class="consulta">
         <Toast />
-
-        <div class="card" v-if="!completeDatos">
+        <VehiculoComponent class="mb-3"/>
+        <div class="card w-7" v-if="!completeDatos" >
             <Steps :model="items" :readonly="true" aria-label="Form Steps" />
         </div>
 
@@ -11,6 +11,9 @@
                 <component :is="Component" />
             </keep-alive>
         </router-view>
+   
+        <ProtagonistasComponent class="mt-5 w-7"/>
+       
     </div>
 </template>
 
@@ -18,55 +21,53 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useToast } from 'primevue/usetoast';
+import VehiculoComponent from './components/VehiculoComponent.vue';
+import ProtagonistasComponent from './components/ProtagonistasComponent.vue';
 
 export default {
     setup() {
         const router = useRouter();
         const toast = useToast();
-        let completeDatos = ref(true)
+        let completeDatos = ref(false);
         const items = ref([
             {
-                label: 'Cédula Verde',
+                label: "Cédula Verde",
                 to: "/"
             },
             {
-                label: 'Cédula Azul',
+                label: "Cédula Azul",
                 to: "/cedulaazul",
             },
             {
-                label: 'Licencia de Conducir',
+                label: "Licencia de Conducir",
                 to: "/licenciaconducir",
             },
             {
-                label: 'RTO',
+                label: "RTO",
                 to: "/rto",
             },
             {
-                label: 'Seguro',
+                label: "Seguro",
                 to: "/seguro",
             }
         ]);
         const formObject = ref({});
-
         const nextPage = (event) => {
-            console.log(event)
+            console.log(event);
             for (let field in event.formData) {
                 formObject.value[field] = event.formData[field];
             }
-
             router.push(items.value[event.pageIndex + 1].to);
         };
         const prevPage = (event) => {
             router.push(items.value[event.pageIndex - 1].to);
         };
         const complete = () => {
-            toast.add({severity:'success', summary:'Order submitted', detail: 'Dear, ' + formObject.value.firstname + ' ' + formObject.value.lastname + ' your order completed.'});
+            toast.add({ severity: "success", summary: "Order submitted", detail: "Dear, " + formObject.value.firstname + " " + formObject.value.lastname + " your order completed." });
         };
-
-        return { items, formObject, nextPage, prevPage, complete,completeDatos }
-
-        
-    }
+        return { items, formObject, nextPage, prevPage, complete, completeDatos };
+    },
+    components: { VehiculoComponent, ProtagonistasComponent }
 }
 </script>
 
