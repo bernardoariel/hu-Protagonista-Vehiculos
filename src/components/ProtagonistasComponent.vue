@@ -1,32 +1,32 @@
 
 <template>
 
-            <PickList v-model="products" listStyle="height:342px" dataKey="id">
-                <template #sourceheader>
-                    Protagonistas
-                </template>
-                <template #targetheader>
-                    Vehículo
-                </template>
-                <template #item="slotProps">
-                    <div class="product-item">
-                       
-                        <div class="product-list-detail">
-                            <h6 class="mb-2">{{slotProps.item.name}}</h6>
-                            <i :class="'pi '+slotProps.item.icono"></i>
-                            <span class="product-category ml-3">{{slotProps.item.category}}</span>
-                        </div>
-                        <div class="product-list-action">
-                           
-                            <span :class="'product-badge status-'+slotProps.item.inventoryStatus.toLowerCase()">{{slotProps.item.tipo}}</span>
-                        </div>
-                    </div>
-                </template>
-            </PickList>
+    <PickList v-model="products" listStyle="height:342px" dataKey="id">
+        <template #sourceheader>
+            Protagonistas
+        </template>
+        <template #targetheader>
+            Vehículo
+        </template>
+        <template #item="slotProps">
+            <div class="product-item">
+                
+                <div class="product-list-detail">
+                    <h6 class="mb-2">{{slotProps.item.name}}</h6>
+                    <i :class="'pi '+slotProps.item.icono"></i>
+                    <span class="product-category ml-3">{{slotProps.item.category}}</span>
+                </div>
+                <div class="product-list-action">
+                    
+                    <span :class="'product-badge status-'+slotProps.item.inventoryStatus.toLowerCase()">{{slotProps.item.tipo}}</span>
+                </div>
+            </div>
+        </template>
+    </PickList>
        
-    </template>
+</template>
 
-<script>
+<script >
 import { ref, onMounted } from 'vue';
 import ProductService from './service/ProductService';
 

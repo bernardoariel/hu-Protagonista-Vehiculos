@@ -20,6 +20,6 @@ export const usePreguntas = (doc:IDocumentacion) =>{
         txtInput,fecha,
         nextRoute,
         previousRoute,
-        nameRoute
+        nameRoute,
     }
 }

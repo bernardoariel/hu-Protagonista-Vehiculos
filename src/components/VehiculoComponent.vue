@@ -1,53 +1,18 @@
 <script setup>
-    import { ref } from 'vue';
-    import { useStepsStore } from '../store/stepsStore'
-    import { storeToRefs } from 'pinia';
-    /* store */
-    const stepStore = useStepsStore();
-    const {vehiculoSeleccionado} = storeToRefs(stepStore)
-    
-    const selectedVehiculo = ref();
-    const selectedTipo = ref();
-    const selectedMarca = ref();
-    const selectedModelo = ref();
+import { useVehiculos } from '../composables/useVehiculos';
 
-    const vehiculos = ref([
-            {name: 'Auto'},
-            {name: 'Moto'},
-            {name: 'Bicicleta'},
-            {name: 'Camioneta'},
-            {name: 'Camion'}
-        ]);
-    const tipos = ref([
-            {name: 'Sedan'},
-            {name: 'Hatchback'},
-            {name: 'Coupe'},
-            {name: 'SUV'}
-        ]);
-     
-    const marcas = ref([
-            {name: 'Fiat'},
-            {name: 'Ford'},
-            {name: 'Toyota'},
-            {name: 'Renault'}
-        ]);
-     
-    const modelos = ref([
-            {name: 'Palio'},
-            {name: 'Argo'},
-            {name: '125'},
-            {name: 'Cronos'}
-        ]);
-    
-    let onVehiculoChange = () =>{
-        if(selectedVehiculo.value){
+const { stepStore,
+        vehiculoSeleccionado,
+        selectedVehiculo,
+        selectedTipo,
+        selectedMarca,
+        selectedModelo,
+        vehiculos,
+        tipos,
+        marcas,
+        modelos,
+        onVehiculoChange } = useVehiculos()
 
-            vehiculoSeleccionado.value =selectedVehiculo.value.name
-        }else{
-            vehiculoSeleccionado.value = ''
-        }
-        console.log(vehiculoSeleccionado.value)
-    }
 </script>
 
 <template>
@@ -55,7 +20,7 @@
     <Card class="w-8"> 
 
         <template v-slot:title>
-            Vehiculo
+            Vehiculo 
         </template>
 
         <template v-slot:subtitle>

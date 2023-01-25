@@ -1,53 +1,9 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
-import { useStepsStore } from '../store/stepsStore'
-import { storeToRefs } from 'pinia';
-/* store */
-const stepStore = useStepsStore();
-const {stepsCard} = storeToRefs(stepStore)
+import { useComplete } from '../composables/useComplete';
 
-const router = useRouter();
-    const documentos = [ 
-                {
-                    'acreditacion':'Cedula Verde',
-                    'posee':'SI',
-                    'vencido':"Vigente",
-                    'fecha': ' - - - - - - - -' ,
-                    'descripcion:':''
-                },
-                {
-                    'acreditacion':'Cedula Azul',
-                    'posee':'NO',
-                    'vencido':' - - - - - - - -',
-                    'fecha': ' - - - - - - - -' ,
-                    'descripcion:':''
-                },
-                {
-                    'acreditacion':'Licencia de Conducir',
-                    'posee':'SI',
-                    'vencido':'Vencido',
-                    'fecha': '03-06-2022' ,
-                    'descripcion:':'La lincencia no es legible'
-                },
-                {
-                    'acreditacion':'RTO',
-                    'posee':'SI',
-                    'vencido':'Vigente',
-                    'fecha': ' - - - - - - - -' ,
-                    'descripcion:':''
-                },
-                {
-                    'acreditacion':'Seguro',
-                    'posee':'SI',
-                    'vencido':'Vigente',
-                    'fecha': ' - - - - - - - -' ,
-                    'descripcion:':''
-                }
-            ]
-    let reiniciarForm = () =>{
-        stepStore.changeStepsCard()
-        router.push ({name:'cedulaVerde'})
-    }
+/* datos y funciones del complete */
+const { documentos, reiniciarForm } = useComplete()
+    
 </script>
 
 <template>
@@ -84,6 +40,7 @@ const router = useRouter();
                 </div>
 
             </template>
+            
         </Card>
     </div>
 </template>
