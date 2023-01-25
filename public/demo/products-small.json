@@ -19,14 +19,6 @@
         },
         {
             "id": "1000",
-            "name": "Milena Rinaldi",
-            "icono":"pi-user",
-            "tipo": "Peaton",
-            "category": "Dni: 12123456",
-            "inventoryStatus": "OUTOFSTOCK"
-        },
-        {
-            "id": "1000",
             "name": "Juan Casco",
             "tipo": "Acompañante",
             "icono":"pi-users",

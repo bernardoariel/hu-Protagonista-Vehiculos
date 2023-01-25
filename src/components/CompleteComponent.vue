@@ -11,35 +11,35 @@ const router = useRouter();
                 {
                     'acreditacion':'Cedula Verde',
                     'posee':'SI',
-                    'vencido':"No esta vencido",
+                    'vencido':"Vigente",
                     'fecha': ' - - - - - - - -' ,
                     'descripcion:':''
                 },
                 {
                     'acreditacion':'Cedula Azul',
                     'posee':'NO',
-                    'vencido':"No esta vencido",
+                    'vencido':' - - - - - - - -',
                     'fecha': ' - - - - - - - -' ,
                     'descripcion:':''
                 },
                 {
                     'acreditacion':'Licencia de Conducir',
                     'posee':'SI',
-                    'vencido':'Esta Vencido',
+                    'vencido':'Vencido',
                     'fecha': '03-06-2022' ,
                     'descripcion:':'La lincencia no es legible'
                 },
                 {
                     'acreditacion':'RTO',
                     'posee':'SI',
-                    'vencido':'NO',
+                    'vencido':'Vigente',
                     'fecha': ' - - - - - - - -' ,
                     'descripcion:':''
                 },
                 {
                     'acreditacion':'Seguro',
                     'posee':'SI',
-                    'vencido':'No está vencido',
+                    'vencido':'Vigente',
                     'fecha': ' - - - - - - - -' ,
                     'descripcion:':''
                 }
@@ -66,9 +66,9 @@ const router = useRouter();
             <template v-slot:content>
 
                 <DataTable :value="documentos" responsiveLayout="scroll">
-                    <Column field="acreditacion" header="Documentacion"></Column>
-                    <Column field="posee" header="Posee"></Column>
-                    <Column field="vencido" header="Vencido"></Column>
+                    <Column field="acreditacion" header="Tipo"></Column>
+                    <Column field="posee" header="Documentacion"></Column>
+                    <Column field="vencido" header="Estado"></Column>
                     <Column field="fecha" header="Fecha Vencimiento"></Column>
                     <Column field="descripcion" header="Descripcion"></Column>
                 </DataTable>
