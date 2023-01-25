@@ -4,6 +4,12 @@ import { useRouter } from 'vue-router';
 import { usePreguntas } from "../composables/usePreguntas"
 import { useErrores } from "../composables/useErrores"
 import type { IDocumentacion } from "../interfaces/IDocumentacion";
+import { useStepsStore } from '../store/stepsStore'
+import { storeToRefs } from 'pinia';
+/* store */
+const stepStore = useStepsStore();
+const {stepsCard} = storeToRefs(stepStore)
+
 const router = useRouter();
 
 const props = defineProps({
@@ -50,6 +56,7 @@ const complete = ()=> {
         error.value= true
         return
         }
+        stepStore.changeStepsCard()
         router.push({ name: nextRoute.value })
        
     }

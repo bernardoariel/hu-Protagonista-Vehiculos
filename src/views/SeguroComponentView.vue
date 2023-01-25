@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import PreguntaComponent from '@/components/PreguntaComponent.vue'
+
 const doc= {
   titulo:'Seguro',
         subtitulo:'Ingrese por favor la información solicitada',

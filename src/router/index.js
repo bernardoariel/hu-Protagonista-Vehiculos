@@ -4,6 +4,7 @@ import CedulaAzulView  from "@/views/CedulaAzulView.vue";
 import LicenciaConducirView  from "@/views/LicenciaConducirView.vue";
 import RtoComponentView  from "@/views/RtoComponentView.vue";
 import SeguroComponentView  from "@/views/SeguroComponentView.vue";
+import DatosCompletosViews  from "../views/DatosCompletosView.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -32,6 +33,11 @@ const router = createRouter({
       path: '/seguro',
       name:'seguro',
       component: SeguroComponentView,
+    },
+    {
+      path: '/complete',
+      name:'complete',
+      component: DatosCompletosViews,
     }
   ]
 })

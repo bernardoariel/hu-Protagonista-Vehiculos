@@ -1,75 +1,10 @@
-<template>
-    <div class="consulta">
-        <Toast />
-        <VehiculoComponent class="mb-3"/>
-        <div class="card w-8" v-if="!completeDatos" >
-            <Steps :model="items" :readonly="true" aria-label="Form Steps" />
-        </div>
+<script setup lang="ts">
+import VehiculosViews from '@/views/VehiculosViews.vue'
 
-        <router-view v-slot="{Component}" :formData="formObject" @prevPage="prevPage($event)" @nextPage="nextPage($event)" @complete="complete">
-            <keep-alive>
-                <component :is="Component" />
-            </keep-alive>
-        </router-view>
-   
-        <ProtagonistasComponent class="mt-5 w-8"/>
-       
-    </div>
-</template>
-
-<script>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import { useToast } from 'primevue/usetoast';
-import VehiculoComponent from './components/VehiculoComponent.vue';
-import ProtagonistasComponent from './components/ProtagonistasComponent.vue';
-
-export default {
-    setup() {
-        const router = useRouter();
-        const toast = useToast();
-        let completeDatos = ref(false);
-        const items = ref([
-            {
-                label: "Cédula Verde",
-                to: "/"
-            },
-            {
-                label: "Cédula Azul",
-                to: "/cedulaazul",
-            },
-            {
-                label: "Licencia de Conducir",
-                to: "/licenciaconducir",
-            },
-            {
-                label: "RTO",
-                to: "/rto",
-            },
-            {
-                label: "Seguro",
-                to: "/seguro",
-            }
-        ]);
-        const formObject = ref({});
-        const nextPage = (event) => {
-            console.log(event);
-            for (let field in event.formData) {
-                formObject.value[field] = event.formData[field];
-            }
-            router.push(items.value[event.pageIndex + 1].to);
-        };
-        const prevPage = (event) => {
-            router.push(items.value[event.pageIndex - 1].to);
-        };
-        const complete = () => {
-            toast.add({ severity: "success", summary: "Order submitted", detail: "Dear, " + formObject.value.firstname + " " + formObject.value.lastname + " your order completed." });
-        };
-        return { items, formObject, nextPage, prevPage, complete, completeDatos };
-    },
-    components: { VehiculoComponent, ProtagonistasComponent }
-}
 </script>
+<template>
+    <VehiculosViews />
+</template>
 
 <style scoped lang="scss">
 ::v-deep(b) {

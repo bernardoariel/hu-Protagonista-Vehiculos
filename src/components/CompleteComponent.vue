@@ -1,43 +1,12 @@
-<template>
-    <div class="stepsdemo-content">
-        
-        <Card class="w-8"> 
-
-            <template v-slot:title>
-                Datos Ingresados de la Documentación Obligatoria
-            </template>
-
-            <template v-slot:subtitle>
-                Mostrando la informacion solicitada
-            </template>
-
-            <template v-slot:content>
-
-                <DataTable :value="documentos" responsiveLayout="scroll">
-                    <Column field="acreditacion" header="Documentacion"></Column>
-                    <Column field="posee" header="Posee"></Column>
-                    <Column field="vencido" header="Vencido"></Column>
-                    <Column field="fecha" header="Fecha Vencimiento"></Column>
-                    <Column field="descripcion" header="Descripcion"></Column>
-                </DataTable>
-               
-            </template>
-
-            <template v-slot:footer>
-
-                <div class="grid grid-nogutter justify-content-between">
-
-                    <Button label="Editar" @click="reiniciarForm()"  icon="pi pi-pencil" class="p-button-warning"/>
-                    
-                </div>
-
-            </template>
-        </Card>
-    </div>
-</template>
 <script setup lang="ts">
-    import { useRouter } from 'vue-router';
-    const router = useRouter();
+import { useRouter } from 'vue-router';
+import { useStepsStore } from '../store/stepsStore'
+import { storeToRefs } from 'pinia';
+/* store */
+const stepStore = useStepsStore();
+const {stepsCard} = storeToRefs(stepStore)
+
+const router = useRouter();
     const documentos = [ 
                 {
                     'acreditacion':'Cedula Verde',
@@ -76,9 +45,49 @@
                 }
             ]
     let reiniciarForm = () =>{
+        stepStore.changeStepsCard()
         router.push ({name:'cedulaVerde'})
     }
 </script>
+
+<template>
+    <div class="stepsdemo-content">
+  
+        <Card class="w-8"> 
+
+            <template v-slot:title>
+                Datos Ingresados de la Documentación Obligatoria
+            </template>
+
+            <template v-slot:subtitle>
+                Mostrando la informacion solicitada
+            </template>
+
+            <template v-slot:content>
+
+                <DataTable :value="documentos" responsiveLayout="scroll">
+                    <Column field="acreditacion" header="Documentacion"></Column>
+                    <Column field="posee" header="Posee"></Column>
+                    <Column field="vencido" header="Vencido"></Column>
+                    <Column field="fecha" header="Fecha Vencimiento"></Column>
+                    <Column field="descripcion" header="Descripcion"></Column>
+                </DataTable>
+               
+            </template>
+
+            <template v-slot:footer>
+
+                <div class="grid grid-nogutter justify-content-between">
+
+                    <Button label="Editar" @click="reiniciarForm()"  icon="pi pi-pencil" class="p-button-warning"/>
+                    
+                </div>
+
+            </template>
+        </Card>
+    </div>
+</template>
+
 
 
 <style lang="scss" scoped>

@@ -1,10 +1,16 @@
 <script setup>
     import { ref } from 'vue';
+    import { useStepsStore } from '../store/stepsStore'
+    import { storeToRefs } from 'pinia';
+    /* store */
+    const stepStore = useStepsStore();
+    const {vehiculoSeleccionado} = storeToRefs(stepStore)
+    
     const selectedVehiculo = ref();
     const selectedTipo = ref();
     const selectedMarca = ref();
     const selectedModelo = ref();
-    const vehiculoSeleccionado = ref('Auto')
+
     const vehiculos = ref([
             {name: 'Auto'},
             {name: 'Moto'},
