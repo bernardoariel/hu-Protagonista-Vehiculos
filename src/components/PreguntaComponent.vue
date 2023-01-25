@@ -20,10 +20,12 @@ const {doc} = props;
      fecha, 
      nextRoute, 
      previousRoute, 
-     nameRoute} = usePreguntas(doc!);
+     nameRoute
+    } = usePreguntas(doc!);
 /* errores */
 
 const { submitted,error } = useErrores();
+
 const nextPage = () => {
 
         submitted.value = true;
@@ -36,9 +38,21 @@ const nextPage = () => {
         router.push({ name: nextRoute.value })
     }
 const prevPage = () =>{
+  
+    console.log(previousRoute.value)
         router.push({ name: previousRoute.value })
     }
-
+const complete = ()=> {
+        submitted.value = true;
+        
+        if (!fecha.value && !chkVencida.value) {
+        // this.$emit('next-page', {formData: {firstname: this.firstname, lastname: this.lastname, age: this.age}, pageIndex: 0});
+        error.value= true
+        return
+        }
+        router.push({ name: nextRoute.value })
+       
+    }
 </script>
 <template>
     <div class="stepsdemo-content">
@@ -107,9 +121,11 @@ const prevPage = () =>{
             <template v-slot:footer>
                 <div class="grid grid-nogutter justify-content-between">
                     
-                    <Button label="Volver" icon="pi pi-angle-left" :disabled="!previousRoute"/>
-                    <Button label="Siguiente" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
-
+                    <Button label="Volver" icon="pi pi-angle-left" @click="prevPage()" :disabled="!previousRoute"/>
+                    
+                    <Button v-if="nextRoute!='complete'"
+                        label="Siguiente" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
+                    <Button v-else label="Finalizar" @click="complete()" icon="pi pi-check" iconPos="right" class="p-button-success"/>
                 </div>
             </template>
 
@@ -123,11 +139,3 @@ const prevPage = () =>{
     text-decoration: line-through;
 }
 </style>
-
-function doc(doc: any): { chkVencida: any; toogleOpcionBtn: any; options: any; txtInput: any; fecha: any; nextRoute: any; previousRoute: any; nameRoute: any; } {
-  throw new Error('Function not implemented.');
-}
-
-function doc(doc: any): { chkVencida: any; toogleOpcionBtn: any; options: any; txtInput: any; fecha: any; nextRoute: any; previousRoute: any; nameRoute: any; } {
-  throw new Error('Function not implemented.');
-}

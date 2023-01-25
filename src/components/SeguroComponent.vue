@@ -107,19 +107,7 @@ export default {
            this.$router.push({ name: 'complete' })
            /*  this.$router.push({ path: 'licenciaConducir' }) */
         },
-        /* validateForm() {
-            if (!this.firstname.trim())
-                this.validationErrors['firstname'] = true;
-            else
-                delete this.validationErrors['firstname'];
-
-            if (!this.lastname.trim())
-                this.validationErrors['lastname'] = true;
-            else
-                delete this.validationErrors['lastname'];
-
-            return !Object.keys(this.validationErrors).length;
-        } */
+       
     }
 }
 </script>
