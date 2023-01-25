@@ -2,7 +2,7 @@
     <div class="consulta">
         <Toast />
         <VehiculoComponent class="mb-3"/>
-        <div class="card w-7" v-if="!completeDatos" >
+        <div class="card w-8" v-if="!completeDatos" >
             <Steps :model="items" :readonly="true" aria-label="Form Steps" />
         </div>
 
@@ -12,7 +12,7 @@
             </keep-alive>
         </router-view>
    
-        <ProtagonistasComponent class="mt-5 w-7"/>
+        <ProtagonistasComponent class="mt-5 w-8"/>
        
     </div>
 </template>

@@ -1,9 +1,11 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import { createPinia } from 'pinia'
 import router from './router'
 import PrimeVue from 'primevue/config';
 import "primeflex/primeflex.css";
-import 'primevue/resources/themes/mdc-light-indigo/theme.css';
+
+import 'primevue/resources/themes/saga-blue/theme.css'  
 import 'primevue/resources/primevue.min.css';
 import 'primeicons/primeicons.css';
 
@@ -24,7 +26,8 @@ import ColumnGroup from 'primevue/columngroup';     //optional for column groupi
 import Row from 'primevue/row';      
 import Dropdown from 'primevue/dropdown';
 import PickList from 'primevue/picklist';
-
+import SelectButton from 'primevue/selectbutton';
+const pinia = createPinia()
 const app = createApp(App);
 app.use(PrimeVue)
 app.use(ToastService)
@@ -43,8 +46,9 @@ app.component('ColumnGroup', ColumnGroup);
 app.component('Row', Row);
 app.component('Dropdown', Dropdown);
 app.component('PickList', PickList);
+app.component('SelectButton', SelectButton);
 
-
+app.use(pinia)
 app.use(router)
 
 app.mount('#app')

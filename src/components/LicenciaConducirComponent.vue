@@ -1,7 +1,7 @@
 
 <template>
     <div class="stepsdemo-content">
-        <Card class="w-7"> 
+        <Card class="w-8"> 
             <template v-slot:title>
                 Licencia de Conducir
             </template>
@@ -35,6 +35,7 @@
                         onIcon="pi pi-thumbs-up" 
                         offIcon="pi pi-thumbs-down" 
                         class="w-full sm:w-15rem"
+                        :class="chkVencida ? 'bg-green-500 border-green-500 text-white': 'bg-red-500 border-red-500 text-white'"
                         aria-label="do you confirm" />
 
                     </div>
@@ -44,7 +45,7 @@
                 <div class="grid">
                     <div class="field col">
                     
-                        <Textarea v-model="value" rows="3" cols="40" />
+                        <Textarea v-model="txtInput" rows="3" cols="40" />
                     </div>
                     <div class="col" v-if="!chkVencida">
                         <label for="fechaVencimiento">Se venció en :</label><br>
@@ -78,7 +79,8 @@ export default {
             checked:false,
             chkVencida:true,
             fecha:'',
-            error: false
+            error: false,
+            txtInput:''
         }
     },
     methods: {
@@ -96,19 +98,7 @@ export default {
         prevPage() {
             this.$router.push({ name: 'cedulaVerde' })
         },
-        /* validateForm() {
-            if (!this.firstname.trim())
-                this.validationErrors['firstname'] = true;
-            else
-                delete this.validationErrors['firstname'];
-
-            if (!this.lastname.trim())
-                this.validationErrors['lastname'] = true;
-            else
-                delete this.validationErrors['lastname'];
-
-            return !Object.keys(this.validationErrors).length;
-        } */
+       
     }
 }
 </script>

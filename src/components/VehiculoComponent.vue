@@ -46,7 +46,7 @@
 
 <template>
     
-    <Card class="w-7"> 
+    <Card class="w-8"> 
 
         <template v-slot:title>
             Vehiculo

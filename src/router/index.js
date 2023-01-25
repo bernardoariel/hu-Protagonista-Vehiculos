@@ -1,38 +1,94 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import CedulaVerdeComponent from '../components/CedulaVerdeComponent.vue'
-import CedulaAzulComponent from '../components/CedulaAzulComponent.vue'
-import LicenciaConducirComponent from '../components/LicenciaConducirComponent.vue'
-import RtoComponent from '../components/RtoComponent.vue'
-import SeguroComponent from '../components/SeguroComponent.vue'
-import CompleteComponent from '../components/CompleteComponent.vue'
+
+
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
       name:'cedulaVerde',
-      component: CedulaVerdeComponent
+      component: PreguntaComponent,
+      props: {
+        titulo:'Cedula Verde',
+        subtitulo:'Ingrese por favor la información solicitada',
+        pregunta1:'Posee Cedula Verde',
+        toogleButtonDefault:'No',
+        labeldescripcion:'Ingrese una descripcion:',
+        vencimientoDoc:true,
+        fecha:'',
+        nextRoute:'cedulaAzul',
+        previousRoute:'',
+        nameRoute:'cedulaVerde'
+      },
     },
     {
       path: '/cedulaazul',
       name:'cedulaAzul',
-      component: CedulaAzulComponent
+      component: PreguntaComponent,
+      props: {
+        titulo:'Cedula Azul',
+        subtitulo:'Ingrese por favor la información solicitada',
+        pregunta1:'Posee Cedula Azul',
+        toogleButtonDefault:'No',
+        labeldescripcion:'Ingrese una descripcion:',
+        vencimientoDoc:true,
+        fecha:'',
+        nextRoute:'licenciaConducir',
+        previousRoute:'cedulaVerde',
+        nameRoute:'cedulaAzul'
+      },
     },
     {
       path: '/licenciaconducir',
       name:'licenciaConducir',
-      component: LicenciaConducirComponent
+      component: PreguntaComponent,
+      props: {
+        titulo:'Licencia de Conducir',
+        subtitulo:'Ingrese por favor la información solicitada',
+        pregunta1:'Posee Licencia de Conducir',
+        toogleButtonDefault:'No',
+        labeldescripcion:'Ingrese una descripcion:',
+        vencimientoDoc:true,
+        fecha:'',
+        nextRoute:'rto',
+        previousRoute:'cedulaAzul',
+        nameRoute:'licenciaConducir'
+      },
     },
     {
       path: '/rto',
       name:'rto',
-      component: RtoComponent
+      component: PreguntaComponent,
+      props: {
+        titulo:'Revisión Técnica Obligatoria',
+        subtitulo:'Ingrese por favor la información solicitada',
+        pregunta1:'Posee RTO',
+        toogleButtonDefault:'No',
+        labeldescripcion:'Ingrese una descripcion:',
+        vencimientoDoc:true,
+        fecha:'',
+        nextRoute:'seguro',
+        previousRoute:'licenciaConducir',
+        nameRoute:'rto'
+      },
     },
     {
       path: '/seguro',
       name:'seguro',
-      component: SeguroComponent
+      component: PreguntaComponent,
+      props: {
+        titulo:'Seguro',
+        subtitulo:'Ingrese por favor la información solicitada',
+        pregunta1:'Posee Seguro',
+        toogleButtonDefault:'No',
+        labeldescripcion:'Ingrese una descripcion:',
+        vencimientoDoc:true,
+        fecha:'',
+        nextRoute:'complete',
+        previousRoute:'rto',
+        nameRoute:'seguro'
+      },
     },
     {
       path: '/complete',
