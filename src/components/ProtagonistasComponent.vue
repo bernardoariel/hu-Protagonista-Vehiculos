@@ -1,6 +1,7 @@
 
 <template>
-
+    <div class="card">
+        <h2>Asignar los Protagonistas al Vehículo</h2>
     <PickList v-model="products" listStyle="height:342px" dataKey="id">
         <template #sourceheader>
             Protagonistas
@@ -23,7 +24,9 @@
             </div>
         </template>
     </PickList>
-       
+    </div>
+    
+    
 </template>
 
 <script >
@@ -34,8 +37,17 @@ export default {
     setup() {
         onMounted(() => {
             productService.value.getProductsSmall().then(data => products.value = [data, []]);
+            hidePickListButtons()
+            hideSpecificPickListButtons()
         })
-
+        const hidePickListButtons=()=> {
+            const pickListButtons = document.querySelectorAll(' .p-picklist-source-controls, .p-picklist-target-controls');
+            pickListButtons.forEach(button => button.style.display = 'none');
+        }
+        const hideSpecificPickListButtons =()=> {
+    const pickListButtons = document.querySelectorAll('.p-picklist-buttons button:nth-of-type(2), .p-picklist-buttons button:nth-of-type(4)');
+    pickListButtons.forEach(button => button.style.display = 'none');
+  }
         const products = ref(null);
         const productService = ref(new ProductService());
 
@@ -78,6 +90,14 @@ export default {
         line-height: 1;
         font-size: .875rem;
     }
+    .card {
+        background: var(--surface-card);
+        padding: 2rem;
+        border-radius: 10px;
+        margin-bottom: 2rem;
+        margin-left: 20vh;
+    }
+
 }
 
 @media screen and (max-width: 576px) {

@@ -79,7 +79,7 @@ const complete = ()=> {
                 <div class="grid ml-3">
                 
                     <div class="col">
-                        <h5>Posee Cedula Verde</h5>
+                        <h5>¿ Posee Cedula Verde ?</h5>
                         <SelectButton 
                             class="mb-3" 
                             v-model="toogleOpcionBtn" 
@@ -89,11 +89,11 @@ const complete = ()=> {
 
                     <div class="col" v-if="toogleOpcionBtn=='Si'">
 
-                        <h5>Seleccione el Vencimiento</h5>
+                        <h5>¿ Está Vigente ?</h5>
                         <ToggleButton v-model="chkVencida" 
                             inputClass="success"
-                            onLabel="No Esta Vencida" 
-                            offLabel="Está Vencida" 
+                            onLabel="SI" 
+                            offLabel="NO" 
                             onIcon="pi pi-thumbs-up" 
                             offIcon="pi pi-thumbs-down" 
                             class="w-full sm:w-15rem"

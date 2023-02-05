@@ -20,11 +20,11 @@ const { stepStore,
     <Card class="w-8"> 
 
         <template v-slot:title>
-            Vehiculo 
+            Vehículo 
         </template>
 
         <template v-slot:subtitle>
-            Ingrese por favoor la informacion solicitada
+            Ingrese por favor la informacion solicitada
         </template>
 
         <template v-slot:content>
