@@ -21,7 +21,10 @@ const {stepsCard,vehiculoSeleccionado} = storeToRefs(stepStore)
      </div>
 
      <router-view v-if="vehiculoSeleccionado!='Bicicleta'"
-        v-slot="{Component}" :formData="formObject" @prevPage="prevPage($event)" @nextPage="nextPage($event)" @complete="complete">
+        v-slot="{Component}" :formData="formObject" 
+        @prevPage="prevPage($event)" 
+        @nextPage="nextPage($event)" 
+        @complete="complete">
          <keep-alive>
              <component :is="Component" />
          </keep-alive>
